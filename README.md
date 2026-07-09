@@ -33,6 +33,12 @@ Jinyoung Park, Bui Thi Thuy Duong, Pham Thi Lanh, Seil Kim, Dong Van Quyen
 | `analyze_signature_variants.py` | Identifies lineage-unique and rare variants; calculates unique variant proportions per sample |
 | `analyze_variant_groups.py` | Analyzes variant-sharing patterns between samples; computes pairwise Jaccard similarity |
 
+### Selection Analysis
+
+| Script | Description |
+|--------|-------------|
+| `dnds_analysis.py` | Computes pairwise dN/dS (Nei-Gojobori, Jukes-Cantor corrected) for each RAS lineage versus the MRCA reference, per protein-coding region |
+
 ### Primer Analysis
 
 | Script | Description |
@@ -62,6 +68,10 @@ analyze_variants_by_sample.py
 analyze_all_variants_by_gene.py
 analyze_signature_variants.py
 analyze_variant_groups.py
+
+RAS_nucleotide_sequence.fas
+        ↓
+dnds_analysis.py  (pairwise dN/dS per protein, lineage vs MRCA)
 ```
 
 ---
@@ -98,6 +108,9 @@ python analyze_variants_by_sample.py
 python analyze_all_variants_by_gene.py
 python analyze_signature_variants.py
 python analyze_variant_groups.py
+
+# Selection analysis (dN/dS)
+python dnds_analysis.py --fasta RAS_nucleotide_sequence.fas --reference Node167 --outdir results
 
 # Primer coverage
 python primer_coverage_analyzer.py --help
